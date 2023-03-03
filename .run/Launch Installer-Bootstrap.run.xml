@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Launch Installer-Bootstrap" type="ShConfigurationType">
+    <option name="SCRIPT_TEXT" value="java -jar /Applications/ATLauncher.app/Contents/Java/packs/tools/packwiz/packwiz-installer-bootstrap.jar --bootstrap-no-update --bootstrap-main-jar $PROJECT_DIR$/build/dist/packwiz-installer.jar -s client http://localhost:8080/pack.toml" />
+    <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+    <option name="SCRIPT_PATH" value="" />
+    <option name="SCRIPT_OPTIONS" value="" />
+    <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+    <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/build/out/test-project" />
+    <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+    <option name="INTERPRETER_PATH" value="/usr/local/bin/fish" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="EXECUTE_IN_TERMINAL" value="true" />
+    <option name="EXECUTE_SCRIPT_FILE" value="false" />
+    <envs />
+    <method v="2">
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks="build" externalProjectPath="$PROJECT_DIR$" vmOptions="" scriptParameters="" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Copy Installer-Bootstrap" run_configuration_type="ShConfigurationType" />
+    </method>
+  </configuration>
+</component>

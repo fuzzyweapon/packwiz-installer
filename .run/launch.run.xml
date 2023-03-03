@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="launch" type="CompoundRunConfigurationType">
+    <toRun name="Launch Installer-Bootstrap" type="ShConfigurationType" />
+    <toRun name="Start Packwiz Server" type="ShConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
