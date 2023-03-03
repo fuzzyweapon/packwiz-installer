@@ -464,6 +464,11 @@ class UpdateManager internal constructor(private val opts: Options, val ui: IUse
 					}
 				}
 			}
+			// Re-validate files after assisted user downloads
+			// TODO: Only re-validate the files of manually downloaded tasks
+			for (downloadTask in nonFailedFirstTasks.filter(DownloadTask::correctSide)) {
+				downloadTask.validateExistingFile(opts.packFolder, clientHolder)
+			}
 		}
 		return ResolveResult.SUCCESS
 	}
