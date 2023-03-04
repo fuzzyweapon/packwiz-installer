@@ -141,6 +141,7 @@ githubRelease {
 	targetCommitish("download-assistance")
 	releaseName("Release ${project.version}")
 	draft(true)
+	overwrite(true)
 	token(findProperty("github.token") as String?)
 	releaseAssets(layout.buildDirectory.dir("dist").map { it.file("packwiz-installer.jar") }.get())
 }
