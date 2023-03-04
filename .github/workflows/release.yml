@@ -3,7 +3,7 @@ name: Java Gradle Release
 on:
   push:
     tags:
-      - 'v\d+.\d+.\d+-\d+.\d+.\d+'
+      - 'plus@\d+.\d+.\d+'
 
 jobs:
   build:

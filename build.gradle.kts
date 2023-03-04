@@ -48,7 +48,7 @@ application {
 }
 
 val gitVersion: groovy.lang.Closure<*> by extra
-version = gitVersion()
+version = "plus@${gitVersion(mapOf("prefix" to "plus@"))}"
 
 tasks.jar {
 	manifest {
@@ -135,9 +135,10 @@ tasks.build {
 }
 
 githubRelease {
-	owner("comp500")
+	owner("fuzzyweapon")
 	repo("packwiz-installer")
 	tagName("${project.version}")
+	targetCommitish("download-assistance")
 	releaseName("Release ${project.version}")
 	draft(true)
 	token(findProperty("github.token") as String?)
