@@ -48,7 +48,8 @@ application {
 }
 
 val gitVersion: groovy.lang.Closure<*> by extra
-version = "plus@${gitVersion(mapOf("prefix" to "plus@"))}"
+val addonMoniker = "plus"
+version = "$addonMoniker@${gitVersion(mapOf("prefix" to "$addonMoniker@"))}"
 
 tasks.jar {
 	manifest {
@@ -138,7 +139,7 @@ githubRelease {
 	owner("fuzzyweapon")
 	repo("packwiz-installer")
 	tagName("${project.version}")
-	targetCommitish("download-assistance")
+	targetCommitish(addonMoniker)
 	releaseName("Release ${project.version}")
 	draft(true)
 	overwrite(true)
