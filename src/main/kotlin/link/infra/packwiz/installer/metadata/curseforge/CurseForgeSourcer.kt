@@ -22,6 +22,7 @@ import java.nio.file.Files
 import java.nio.file.StandardWatchEventKinds
 import kotlin.io.path.absolute
 import kotlin.io.path.createDirectories
+import kotlin.io.path.deleteIfExists
 
 private class GetFilesRequest(val fileIds: List<Int>)
 private class GetModsRequest(val modIds: List<Int>)
@@ -174,14 +175,14 @@ fun resolveCfMetadata(mods: List<IndexFile.File>, packFolder: PackwizFilePath, c
 			for (event in watchKey.pollEvents()) {
 				// do something with the events
 				try {
-					val filename = event.context().toString()
+					val downloadedFilename = event.context().toString()
 					for (mod in resModsData.data) {
 						val modFile = manualDownloadMods[mod.id]!!
-						if (modFile.first.destURI.filename.replace(' ', '+') == filename) {
-							Files.move(
-								downloadsDirectory.resolve(filename).toPath(),
-								modFile.first.destURI.rebase(packFolder).nioPath.absolute()
-							)
+						if (modFile.first.destURI.filename.replace(' ', '+') == downloadedFilename) {
+							val downloadOrigin = downloadsDirectory.resolve(downloadedFilename).toPath()
+							val downloadDestination = modFile.first.destURI.rebase(packFolder).nioPath.absolute()
+							Files.move(downloadOrigin, downloadDestination)
+							downloadOrigin.deleteIfExists()
 							moved++
 						}
 					}
